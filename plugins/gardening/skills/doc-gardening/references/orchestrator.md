@@ -20,8 +20,8 @@ determine what the repository contains and what analysis is justified.
 
 ## Execute the workflow
 
-1. Dispatch one read-only Discovery Agent with the target root, user request,
-   exclusions, and output budget.
+1. Dispatch one `Gardening Researcher` custom agent as the read-only Discovery
+   Agent with the target root, user request, exclusions, and output budget.
 2. Validate that discovery returned a repository profile, current-state
    assumptions, inventory, documentation accounting, evidence scopes,
    recommended tasks, warnings, and confidence. If any are missing, mark

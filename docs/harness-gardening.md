@@ -21,6 +21,10 @@ A harness is more than CI. It includes the coding agent and its loop, the projec
 configuration around that loop, and the local feedback controls that help an agent
 know when it is safe to declare a task complete.
 
+Repository discovery and harness analysis use the custom read-only `Gardening
+Researcher` subagent by default, with `GPT 5.6 Luna (copilot)` as its configured
+model.
+
 ## Guidelines, instructions, and skills
 
 A **guideline** is a reusable, project-committed prompt document for thematic
