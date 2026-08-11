@@ -1,0 +1,35 @@
+{
+  "name": "gardening",
+  "owner": {
+    "name": "Gaetan Semet",
+    "email": "gaetan@xeberon.net"
+  },
+  "metadata": {
+    "description": "Documentation and agent-harness maintenance skills for GitHub Copilot.",
+    "version": "0.1.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "gardening",
+      "source": "gardening",
+      "description": "Audit documentation and maintain agent-ready repository harnesses with safe, evidence-based workflows.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Gaetan Semet",
+        "email": "gaetan@xeberon.net"
+      },
+      "homepage": "https://github.com/gsemet/gardening-skills",
+      "keywords": [
+        "documentation-gardening",
+        "harness-gardening",
+        "maintenance",
+        "drift",
+        "agent-readiness",
+        "copilot"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/gsemet/gardening-skills.git"
+    }
+  ]
+}
