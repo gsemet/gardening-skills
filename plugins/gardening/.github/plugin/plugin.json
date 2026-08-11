@@ -21,7 +21,9 @@
     "./skills/doc-gardening",
     "./skills/harness-gardening"
   ],
-  "agents": [],
+  "agents": [
+    "./agents/gardening-researcher.agent.md"
+  ],
   "commands": [],
   "hooks": [],
   "status": "active"

@@ -16,6 +16,9 @@ documentation-like artifacts discovered in the repository, including:
 - configuration and operational documentation; and
 - other artifacts whose discovered intent is to communicate repository behavior.
 
+The default read-only research subagent is the custom `Gardening Researcher`
+agent, configured to run with `GPT 5.6 Luna (copilot)`.
+
 The agent discovers the repository's formats, languages, tools, source roots,
 documentation relationships, and suitable comparison strategies at runtime. It
 compares documented claims with current executable code as the final authority,

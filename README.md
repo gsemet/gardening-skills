@@ -7,7 +7,14 @@ The plugin is standalone and released under the MIT License.
 
 ## Installation
 
-Install the `gardening` plugin from the GitHub Copilot plugin marketplace.
+Install the `gardening` plugin from the GitHub Copilot plugin marketplace
+(settings [chat.plugins.marketplaces](vscode://settings/chat.plugins.marketplaces)):
+
+```text
+https://github.com/gsemet/gardening-skills.git
+```
+
+This plugin is Claude-compatible and should work in Claude Code.
 
 ## Usage
 
@@ -24,6 +31,12 @@ obvious. For example:
 | --- | --- |
 | `doc-gardening` | Shows where documentation no longer reflects the code, configuration, or public behavior, with evidence and proposed wording. |
 | `harness-gardening` | Shows whether agent guidance, quality checks, decisions, vocabulary, and project memory still work together, then supports approved repairs. |
+
+## Included Agents
+
+| Agent | Purpose |
+| --- | --- |
+| `Gardening Researcher` | Read-only repository research for discovery and analysis tasks, using `GPT 5.6 Luna (copilot)` by default. |
 
 ## Skill documentation
 

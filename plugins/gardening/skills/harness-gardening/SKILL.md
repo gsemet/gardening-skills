@@ -3,6 +3,7 @@ name: harness-gardening
 description: 'Audit, realign, and incrementally improve a repository agent harness while preserving evidence, ownership, and approval boundaries.'
 metadata:
   keywords: [harness, preflight, agent-loop, lint, testing, feedback-loop, harness-engineering, justfile, makefile, agent-readiness, dx, adr, glossary, tech-debt, maintenance]
+  recommended-models: [GPT 5.6 Luna (copilot)]
 ---
 
 # harness-gardening
@@ -15,6 +16,10 @@ This skill is the standalone owner of harness audits and approved harness repair
 discovers evidence, identifies drift and debt, and applies repairs using the artifact
 contracts in [`references/artifact-contracts.md`](references/artifact-contracts.md).
 It does not invent a second format for existing project artifacts.
+
+Use the custom agent named `Gardening Researcher` as the default read-only
+subagent for repository discovery and harness analysis. If that custom agent is
+unavailable, use an equivalent read-only subagent and report the fallback.
 
 ## Mutation boundary
 
@@ -271,7 +276,8 @@ Present the snapshot and signals before asking the first question. Load
   1. REFLECT — state the current harness hypothesis
   2. QUESTION — use `vscode_askQuestions` for one probing question from
      references/question-bank.md
-  3. ANALYZE — dispatch a read-only subagent using the user's answer
+    3. ANALYZE — dispatch the `Gardening Researcher` custom agent as a read-only
+      subagent using the user's answer
   4. SURFACE — state the evidence-backed tension; do not resolve it
   5. UPDATE — append the finding to .agents/thinking/harness-gardening/log.md
   6. CONTINUE — ask whether to continue or stop

@@ -3,6 +3,7 @@ name: doc-gardening
 description: 'Audit a repository for documentation drift when asked to check stale docs, compare documentation with implementation, or verify that project guidance matches repository evidence; discover the repository first and produce a report-only, evidence-backed alignment report.'
 metadata:
   keywords: [documentation, staleness, audit, doc-sync, code-docs, outdated-docs, evidence, repository-discovery]
+  recommended-models: [GPT 5.6 Luna (copilot)]
 ---
 
 # doc-gardening
@@ -54,6 +55,10 @@ Use specialized analysis only when discovery identifies the relevant evidence.
 Always retain a generic claim-and-reference analysis fallback for unfamiliar
 repositories.
 
+Use the custom agent named `Gardening Researcher` as the default read-only
+subagent for Discovery Agent and analysis-worker tasks. If that custom agent is
+unavailable, use an equivalent read-only subagent and report the fallback.
+
 ## Discovery-led workflow
 
 Follow the workflow in order:
@@ -61,13 +66,15 @@ Follow the workflow in order:
 1. **Establish scope** — identify the repository root, selected checkout,
   active configuration, requested documentation scope, user exclusions, and
   the report-only boundary.
-2. **Discover** — delegate repository inspection to the Discovery Agent. Load
-   [`references/discovery-agent.md`](references/discovery-agent.md).
+2. **Discover** — delegate repository inspection to the `Gardening Researcher`
+  custom agent in its Discovery Agent role. Load
+  [`references/discovery-agent.md`](references/discovery-agent.md).
 3. **Validate the plan** — check that discovery found source, documentation,
   authority, current-state assumptions, documentation accounting, and
   limitations. Do not turn incomplete accounting into a clean bill of health.
-4. **Analyze adaptively** — dispatch the analysis tasks recommended by discovery.
-   Load [`references/analysis-worker.md`](references/analysis-worker.md).
+4. **Analyze adaptively** — dispatch the analysis tasks recommended by discovery
+  to the `Gardening Researcher` custom agent. Load
+  [`references/analysis-worker.md`](references/analysis-worker.md).
 5. **Reconcile evidence** — build or update the repository-wide evidence index,
   resolve cross-scope references, classify claims by their relationship to code,
   and classify uncertainty. Load
