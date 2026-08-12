@@ -19,7 +19,8 @@
   ],
   "skills": [
     "./skills/doc-gardening",
-    "./skills/harness-gardening"
+    "./skills/harness-gardening",
+    "./skills/dependencies-gardening"
   ],
   "agents": [
     "./agents/gardening-researcher.agent.md"
