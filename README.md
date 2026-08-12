@@ -31,6 +31,7 @@ obvious. For example:
 | --- | --- |
 | `doc-gardening` | Shows where documentation no longer reflects the code, configuration, or public behavior, with evidence and proposed wording. |
 | `harness-gardening` | Shows whether agent guidance, quality checks, decisions, vocabulary, and project memory still work together, then supports approved repairs. |
+| `dependencies-gardening` | Modernizes dependencies with validated upgrades, major-version migration attempts, and bounded compatibility work. |
 
 ## Included Agents
 
@@ -42,6 +43,7 @@ obvious. For example:
 
 - [`doc-gardening`](docs/doc-gardening.md)
 - [`harness-gardening`](docs/harness-gardening.md)
+- [`dependencies-gardening`](docs/dependencies-gardening.md)
 
 ## Compatibility and Tool Boundaries
 
@@ -56,7 +58,7 @@ model-neutral and do not require a specific task runner or external service.
 
 ## Repository Layout
 
-The installable plugin is under `plugins/gardening/`. Its two skills include
+The installable plugin is under `plugins/gardening/`. Its three skills include
 their own `SKILL.md` files and local references.
 
 ## Validation
