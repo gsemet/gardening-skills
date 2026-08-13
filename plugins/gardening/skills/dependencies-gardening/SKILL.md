@@ -326,6 +326,62 @@ includes both explicit and automatic activation. In audit trail mode, report
 the activation reason, baseline commit, and each isolated migration commit or
 rollback.
 
+### Required dependency-by-dependency status report
+
+Always print a complete dependency status report in the final response. Do not
+summarize dependency updates only by package group, manifest, or update unit.
+Give every **directly declared dependency** one row, including dependencies that
+were already current, preserved by a constraint, intentionally unchanged, or
+excluded by project policy. Do not create rows for transitive-only packages
+unless the project explicitly treats them as direct dependencies.
+
+Group the rows by authoritative dependency surface and dependency role, using
+sections such as:
+
+- Python runtime dependencies
+- Python development, SAST, test, and documentation dependencies
+- Frontend runtime dependencies
+- Frontend development and build dependencies
+- Nested extension or tool dependencies
+
+Use this table shape for every group:
+
+```markdown
+### Python runtime dependencies
+
+| Dependency | Before | After / resolved | Status |
+|---|---:|---:|---|
+| `example-package` | `>=1.0` / `1.2.0` | `>=2.0` / `2.1.0` | ✅ Updated |
+| `constrained-package` | `<3.0` / `2.8.0` | `<3.0` / `2.9.0` | 🔒 Preserved constraint |
+| `current-package` | `>=4.0` / `4.2.0` | `>=4.0` / `4.2.0` | ➖ Already current |
+| `blocked-package` | `>=5.0` / `5.1.0` | `>=5.0` / `5.1.0` | ↩️ Attempted and reverted |
+```
+
+For each row, show the declaration constraint and resolved version separately
+when both are available. Use `—` when a value is not applicable, and explain
+the reason in the status or the accompanying notes. Use a concise, consistent
+status vocabulary:
+
+- `✅ Updated` — declaration and authoritative lock/resolver state changed and
+  validation passed.
+- `🔒 Preserved constraint` — an upper bound, marker, exclusion, source, runtime,
+  or policy constraint intentionally prevented a newer declaration.
+- `🔁 Lock-only update` — the resolver moved while the declared floor remained
+  intentionally unchanged, with the reason stated.
+- `➖ Already current` — no newer compatible release was available or the
+  declaration already matched the validated target.
+- `↩️ Attempted and reverted` — a candidate was tested but restored after a
+  concrete compatibility, safety, or validation failure.
+- `⏸️ Blocked / unverified` — compatibility could not be established; identify
+  the blocker and the required next step.
+- `🚫 Excluded by policy` — repository rules intentionally excluded the package
+  from this run.
+
+After the tables, include concise notes for source/configuration adaptations,
+official successor replacements, major migration attempts, and any status that
+needs explanation. Keep the tables factual and complete: a package must not be
+silently omitted because it was unchanged or because its update was skipped.
+
 #### Audit-trail squash proposal
 
 When Git audit trail mode was enabled, finish the report with a ready-to-paste
