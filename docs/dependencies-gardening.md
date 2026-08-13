@@ -69,6 +69,9 @@ never pushes automatically.
 
 The final report identifies:
 
+- every directly declared dependency, grouped by authoritative dependency
+  surface, with declaration constraints, resolved versions, and an explicit
+  status;
 - authoritative dependency files and update units;
 - retained updates with old/new declarations and resolved versions;
 - source adaptations and validation evidence;
